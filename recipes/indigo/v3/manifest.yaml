@@ -1,0 +1,43 @@
+contract: 3
+source_slug: indigo
+version: 3.0.0
+navigation: indigo_booking
+allowed_hosts: [www.goindigo.in, goindigo.in]
+single_adult_only: true
+search_ready: div.search-widget-form-body__from
+result_ready: .srp__search-result-list__item
+empty_results: ':not(*)'
+context_selector: body
+next_month_selector: 'button.rdrNextButton[aria-label="Next Month"]'
+route_selectors:
+  origin: .details-wrapper__flight-departure .city-text
+  destination: .details-wrapper__flight-arrival .city-text
+carrier_names: {6E: IndiGo}
+selectors:
+  cards: .srp__search-result-list__item
+  flight_number: .flight-number
+  airline: ':not(*)'
+  total_fare: .fare-type__single .price
+  currency: .fare-type__single .price
+discovery:
+  mode: indigo_stations
+  catalog_url: https://www.goindigo.in/v1/setting/indigowidgets
+  catalog_path: [data, masterDataModel]
+  catalog_fields: {iata: stationCode, airport_name: airportName, city: fullName, country: countryCode}
+  origin: div.search-widget-form-body__from
+  destination: div.search-widget-form-body__to
+families:
+  container: .fare-type__single
+  name: .fare-category-chip.corner-chip
+  price: .price
+  currency: .price
+  cabin_scope: card
+  cabin: .active > .selected-fare .fare-category-chip
+  cabin_names: {Economy: Economy, 'Stretch | Business': Business}
+  reveal: .economy-class-item, .business-class-item
+  selected: .active
+  minimum_interval_ms: 3000
+  flight_details:
+    stops: .journey-lap .body-small-regular:last-child
+    duration_minutes: .journey-lap .body-small-regular:first-child
+stability_ms: 1500

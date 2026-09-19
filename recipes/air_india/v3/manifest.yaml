@@ -1,0 +1,118 @@
+contract: 3
+source_slug: air-india
+version: v3
+allowed_hosts:
+- www.airindia.com
+- airindia.com
+- booking.airindia.com
+search_ready: input[aria-label="Select origin airport"]
+result_ready: .ai-pb-flight-item-listing
+empty_results: '[class*="no-flights"], [data-testid="no-results"]'
+context_selector: .ai-pb-trip-details-content
+stability_ms: 1500
+search_steps:
+- action: click
+  selector: button[id="onetrust-accept-btn-handler"]
+  optional: true
+- action: click
+  selector: .ai-radio-group__label
+  text: One Way
+- action: airport
+  selector: input[aria-label="Select origin airport"]
+  index: 0
+  field: origin
+- action: airport
+  selector: input[aria-label="Select origin airport"]
+  index: 1
+  field: destination
+- action: date
+  selector: button[aria-label="Open date picker"]
+  field: departure_date
+- action: passengers
+  selector: button[aria-label^="Select passengers"]
+- action: cabin
+  selector: '[role="combobox"][aria-label="bookingWidget.class"]'
+  field: cabin
+- action: click
+  selector: button[aria-label="Search"]
+selectors:
+  cards: .ai-pb-flight-item
+  total_fare: .ai-pb-actual-price
+  currency: .ai-pb-actual-price-currency-code
+  flight_number: .ai-pb-flight-id
+  airline: .ai-pb-operated-by-info
+context_date_selector: .ai-pb-calendar-days:has(.ai-pb-highlighted-border)
+context_date_attribute: id
+single_adult_only: true
+carrier_names:
+  AI: Air India
+cabin_scopes:
+  Economy: .ai-pb-economy-card .ai-pb-non-hovered-content
+  Premium Economy: .ai-pb-premium-economy-card .ai-pb-non-hovered-content
+  Business: .ai-pb-business-card .ai-pb-non-hovered-content
+route_selectors:
+  origin: .ai-pb-preferred-departure-city
+  destination: .ai-pb-preferred-arrival-city
+  alternate_origin: .ai-pb-actual-departure-city
+  alternate_destination: .ai-pb-actual-arrival-city
+discovery:
+  mode: autocomplete_catalog
+  catalog_url: https://api.airindia.com/airport-info/v1/airports
+  catalog_path:
+  - responsePayload
+  - data
+  catalog_fields:
+    iata: airportCode
+    airport_name: airportName
+    city: airportCity
+    country: countryCode
+  origin: input[aria-label="Select origin airport"]
+  destination: input[aria-label="Select origin airport"]
+  destination_index: 1
+  options: '[role="option"]'
+  listbox: '[role="listbox"]'
+  consent: '#onetrust-accept-btn-handler'
+  wait_ms: 500
+families:
+  container: ai-pb-fare-family-card
+  name: .ai-pb-complementary-fare-name > .ai-pb-subtitle-small
+  price: .ai-pb-complementary-fare-price-currency > .ai-pb-subtitle-large
+  currency: .ai-pb-complementary-fare-price-currency > .ai-pb-overline-brand
+  cabin: .ai-pb-cabin-card.ai-pb-selected[aria-label]
+  cabin_scope: card
+  cabin_attribute: aria-label
+  cabin_names:
+    SELECT_CABIN economy: Economy
+    SELECT_CABIN premium economy: Premium Economy
+    SELECT_CABIN business: Business
+    SELECT_CABIN first: First
+  reveal: .ai-pb-cabin-card[aria-label^="SELECT_CABIN"]
+  detail_rows: .ai-pb-fare-options
+  detail_label: .ai-pb-subtitle-small-nunito
+  detail_value: .ai-pb-caption
+  detail_labels:
+    Meals: meal_included
+    Checked Baggage: checkin_baggage
+    Change Fee*: change_fee
+    Cancel & Refund*: cancellation_fee
+  shared_detail_rows: .ai-pb-complimentary-info-icons
+  shared_detail_label: .ai-pb-subtitle-small-nunito-brand
+  shared_detail_value: .ai-pb-caption
+  shared_detail_labels:
+    Hand Baggage: cabin_baggage
+  flight_details:
+    stops: .ai-pb-total-stop-info
+flight_details:
+  reveal: .ai-pb-flight-details-button-wrapper button
+  dialog: '[role="dialog"]:has(.ai-pb-flight-number)'
+  numbers: .ai-pb-flight-number
+  aircraft: .ai-pb-aircraft-name
+  operators: .ai-pb-operated-text
+  departures: .departure-info
+  arrivals: .arrival-info
+  airport_code: .ai-pb-location-code
+  airport_name: .ai-pb-airport-name
+  city: .ai-pb-location-name
+  date: .ai-pb-date
+  time: .ai-pb-time
+  date_format: '%d %b %y'

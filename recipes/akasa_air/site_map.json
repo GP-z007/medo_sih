@@ -1,0 +1,21 @@
+{
+  "inspected_on": "2026-09-12",
+  "booking": {
+    "origin": "input[name=From]",
+    "destination": "input[name=To]",
+    "airport_options": "#destinations li[id=<IATA>]",
+    "selection_verification": "Selected input ends with (<IATA>)",
+    "loading": "Early input focus may precede event-handler attachment; bounded native refocus and re-entry opens suggestions",
+    "cookie_consent": "button: Accept cookies",
+    "calendar": "gridcell: Choose <weekday, month ordinal, year>",
+    "passengers": "button[name=SelectPassengers]",
+    "submit": "button: Search Flights"
+  },
+  "results": {
+    "cards": "div.shadow-md.bg-background-highlight-orange",
+    "families": ["Saver", "Flexi"],
+    "fare_summary": "button: View summary -> dialog",
+    "unquoted_fields": ["cabin_class", "convenience_fee", "total_fees", "total_payable"],
+    "payable_limitation": "The page announces an additional convenience fee before checkout"
+  }
+}

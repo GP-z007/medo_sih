@@ -1,0 +1,39 @@
+services:
+  timescaledb:
+    image: timescale/timescaledb:2.25.1-pg17
+    environment:
+      POSTGRES_USER: udaan
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: udaan
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U udaan -d udaan"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+  weaviate:
+    image: cr.weaviate.io/semitechnologies/weaviate:1.36.6
+    command: ["--host", "0.0.0.0", "--port", "8080", "--scheme", "http"]
+    environment:
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
+      PERSISTENCE_DATA_PATH: /var/lib/weaviate
+      DEFAULT_VECTORIZER_MODULE: none
+      CLUSTER_HOSTNAME: udaan-memory
+      AUTOSCHEMA_ENABLED: 'false'
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - weaviate-data:/var/lib/weaviate
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://localhost:8080/v1/.well-known/ready"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+volumes:
+  postgres-data:
+  weaviate-data:

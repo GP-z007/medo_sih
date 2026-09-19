@@ -1,0 +1,44 @@
+contract: 1
+source_slug: air-india
+version: v1
+allowed_hosts:
+- www.airindia.com
+- airindia.com
+- booking.airindia.com
+search_ready: input[aria-label="Select origin airport"]
+result_ready: '[class*="flight-list"], [class*="flight-results"], [data-testid="flight-results"]'
+empty_results: '[class*="no-flights"], [data-testid="no-results"]'
+context_selector: '[class*="search-summary"], [class*="search-details"], [data-testid="search-summary"]'
+stability_ms: 1500
+search_steps:
+- action: click
+  selector: button[id="onetrust-accept-btn-handler"]
+  optional: true
+- action: click
+  selector: .ai-radio-group__label
+  text: One Way
+- action: airport
+  selector: input[aria-label="Select origin airport"]
+  index: 0
+  field: origin
+- action: airport
+  selector: input[aria-label="Select origin airport"]
+  index: 1
+  field: destination
+- action: date
+  selector: button[aria-label="Open date picker"]
+  field: departure_date
+- action: passengers
+  selector: button[aria-label^="Select passengers"]
+- action: cabin
+  selector: '[role="combobox"][aria-label="bookingWidget.class"]'
+  field: cabin
+- action: click
+  selector: button[aria-label="Search"]
+selectors:
+  cards: '[class*="flight-card"], [data-testid="flight-card"]'
+  total_fare: '[class*="total-price"], [data-testid="total-fare"]'
+  currency: '[class*="currency"], [data-testid="currency"]'
+  flight_number: '[class*="flight-number"], [data-testid="flight-number"]'
+  fare_class: '[class*="fare-family"], [data-testid="fare-family"]'
+  airline: '[class*="operating-airline"], [class*="airline-name"], [data-testid="airline"]'

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 512" role="img" aria-labelledby="title desc">
+  <title id="title">Udaan Eagle Logo</title>
+  <desc id="desc">A modern stylized blue eagle emblem with the Udaan wordmark on a transparent background.</desc>
+
+  <defs>
+    <linearGradient id="wing" x1="92" y1="104" x2="406" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5EF2FF"/>
+      <stop offset="0.48" stop-color="#18B9FF"/>
+      <stop offset="1" stop-color="#255CFF"/>
+    </linearGradient>
+    <linearGradient id="deep" x1="154" y1="102" x2="391" y2="393" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#173A8B"/>
+      <stop offset="1" stop-color="#071A4D"/>
+    </linearGradient>
+    <linearGradient id="beak" x1="325" y1="235" x2="432" y2="297" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#DDFBFF"/>
+      <stop offset="1" stop-color="#6EDCFF"/>
+    </linearGradient>
+  </defs>
+
+  <g>
+    <path d="M76 278C78 166 166 82 274 82c61 0 119 27 158 73-47-20-98-24-143-10-43 13-78 39-101 72 42-20 93-25 141-10 47 14 87 46 111 88-40-29-87-42-136-37-66 7-121 47-154 105-46-5-76-35-74-85Z"
+          fill="url(#wing)"/>
+    <path d="M161 196c34-66 105-105 183-92-28 13-50 33-64 60 34-18 74-24 113-14-35 13-64 35-82 66 32-8 65-5 95 9-40 7-70 25-92 51-19 23-34 52-43 87-32-10-61-28-82-53-29-34-40-78-28-114Z"
+          fill="url(#deep)"/>
+    <path d="M211 202c37-30 81-43 128-37-26 13-47 34-60 61 35-14 72-14 107-1-34 7-62 23-84 47-20 21-33 48-39 79-38-20-65-52-75-91-5-21-4-40 3-58 6 7 12 13 20 18Z"
+          fill="#F7FDFF"/>
+    <path d="M250 225c27-18 59-25 91-19-19 7-35 18-49 34-18-5-34-10-49-15 2 0 4 0 7 0Z"
+          fill="#0C2D72"/>
+    <ellipse cx="307" cy="231" rx="8.5" ry="6.5" fill="#0A1740"/>
+    <circle cx="310" cy="229" r="2" fill="#8AF4FF"/>
+    <path d="M337 246c34-4 67 6 97 29-25 2-45 10-61 23-18-3-36-10-52-21 11-7 17-17 16-31Z"
+          fill="url(#beak)"/>
+    <path d="M373 298c14-11 32-18 54-21-10 20-28 33-52 40 2-6 1-12-2-19Z"
+          fill="#2A69D9"/>
+    <path d="M118 326c26 54 79 92 142 101 66 10 133-15 177-64-25 11-52 17-79 17-44 0-83-13-116-37 13 24 32 45 56 60-73 0-138-30-180-77Z"
+          fill="#1747C8" opacity="0.95"/>
+    <path d="M152 310c28 31 64 55 105 66-26-20-45-47-57-79-16 2-33 6-48 13Z"
+          fill="#6DF1FF"/>
+    <path d="M176 160c19-23 44-42 73-54-18 19-30 38-38 59-14-3-25-5-35-5Z" fill="#77F4FF"/>
+    <path d="M221 123c22-17 48-29 78-35-21 14-36 28-49 44-10-5-19-8-29-9Z" fill="#2BA8FF"/>
+  </g>
+
+  <g aria-label="Udaan">
+    <text
+      x="525"
+      y="305"
+      fill="#0B1F4D"
+      font-family="Inter, Avenir Next, Helvetica Neue, Arial, sans-serif"
+      font-size="122"
+      font-weight="700"
+      letter-spacing="-6"
+    >Udaan</text>
+
+    <path
+      d="M536 333 H935"
+      fill="none"
+      stroke="#39DDF5"
+      stroke-width="8"
+      stroke-linecap="round"
+      opacity="0.95"
+    />
+  </g>
+</svg>

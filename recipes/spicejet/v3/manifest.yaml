@@ -1,0 +1,27 @@
+contract: 3
+source_slug: spicejet
+version: 3.0.0
+navigation: spicejet_booking
+allowed_hosts: [www.spicejet.com, spicejet.com]
+single_adult_only: true
+search_ready: '[data-testid="to-testID-origin"] input'
+result_ready: '#fare-bundle-val'
+empty_results: ':not(*)'
+context_selector: '[data-testid="lowfare-carousel"]'
+carrier_names: {SG: SpiceJet}
+selectors:
+  cards: '#fare-bundle-val'
+  flight_number: '#aircraft-no'
+  airline: ':not(*)'
+  total_fare: '.r-1i10wst.r-1kfrs79'
+  currency: '.r-1i10wst.r-1kfrs79'
+families:
+  container: '#fare-bundle-val > div'
+  name: '[data-testid*="-flight-select-radio-button-"]'
+  price: '.r-1i10wst.r-1kfrs79'
+  currency: '.r-1i10wst.r-1kfrs79'
+  minimum_interval_ms: 3000
+discovery:
+  mode: validated_routes
+  origin: '[data-testid="to-testID-origin"] input'
+  destination: '[data-testid="to-testID-destination"] input'

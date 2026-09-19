@@ -1,0 +1,39 @@
+contract: 3
+source_slug: air-india-express
+version: 3.0.0
+navigation: aix_booking
+allowed_hosts: [www.airindiaexpress.com, airindiaexpress.com]
+entry_url: https://www.airindiaexpress.com/home
+single_adult_only: true
+flight_number_many: true
+search_ready: '#new-flight-search-origin-field-text'
+result_ready: div.flight-details-wrapper
+empty_results: ':not(*)'
+context_selector: body
+carrier_names: {IX: Air India Express}
+route_selectors:
+  origin: .source-dest-det
+  destination: .source-arr-det
+selectors:
+  cards: div.flight-details-wrapper
+  flight_number: .flight-det-number
+  airline: ':not(*)'
+  total_fare: .flight-fare-det .current-fare
+  currency: .flight-fare-det .current-fare
+families:
+  container: .xpress-wrapper
+  name: .voucher-name-and-price img
+  name_attribute: alt
+  available_control: input[type=radio]
+  price: .xpress-fare .current-fare
+  currency: .xpress-fare .current-fare
+  reveal: .flight-fare-det
+  minimum_interval_ms: 3000
+  flight_details:
+    stops: .non-stop > span:first-child
+    duration_minutes: .duration
+
+discovery:
+  mode: validated_routes
+  origin: '#basic-url-origin'
+  destination: '#basic-url-destination'

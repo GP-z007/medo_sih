@@ -1,0 +1,25 @@
+{
+  "inspected_on": "2026-09-12",
+  "booking": {
+    "origin": "[data-testid=to-testID-origin] input",
+    "destination": "[data-testid=to-testID-destination] input",
+    "airport_selection": "An exact code may auto-select and advance focus; verify the selected input before clicking any suggestion",
+    "calendar": "[data-testid=undefined-month-<Month>-<year>] [data-testid=undefined-calendar-day-<day>]",
+    "passengers": "[data-testid=home-page-travellers]",
+    "submit": "[data-testid=home-page-flight-cta]"
+  },
+  "results": {
+    "route_date_passengers": "/search query parameters plus selected visible calendar date and per-card airport codes",
+    "fare_bundles": "#fare-bundle-val; parent contains flight identity and route",
+    "flight_number": "#aircraft-no",
+    "family_headers": "[data-testid=searchPage-sortingOption-<family>-child]",
+    "families": ["SpiceSaver", "SpiceFlex", "SpiceMax"],
+    "selected_price": "#selected-onward-container",
+    "summary_open": "[data-testid=toogle_fare_breakup]",
+    "summary_expand": "[data-testid=toggle_onward_farebreakup]",
+    "summary_close": "Click outside in the empty page margin",
+    "unquoted_fields": ["cabin_class", "total_tax", "total_fees", "convenience_fee", "total_payable"],
+    "breakdown_limitation": "Adult fare is itemized; Fees & Taxes are combined; convenience fee may apply"
+  },
+  "route_discovery": "Only real successful route searches are recorded; network is partial"
+}

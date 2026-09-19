@@ -1,0 +1,11 @@
+{
+  "name": "Air India",
+  "slug": "air-india",
+  "base_url": "https://www.airindia.com/",
+  "source_type": "airline",
+  "enabled": true,
+  "configuration": {
+    "permitted_collection": true,
+    "notes": "SIH operator confirmed written collection permission on 2026-09-08. Recipe v2 verified by real DEL-BOM collection. Currently validated for one adult; displayed per-adult fares, unavailable components remain null."
+  }
+}

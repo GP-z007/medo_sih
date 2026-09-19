@@ -1,0 +1,37 @@
+contract: 3
+source_slug: akasa-air
+version: 3.2.0
+navigation: akasa_booking
+allowed_hosts: [www.akasaair.com, akasaair.com]
+single_adult_only: true
+flight_number_many: true
+search_ready: 'input[name="From"]'
+result_ready: div.shadow-md.bg-background-highlight-orange
+empty_results: ':not(*)'
+context_selector: main
+carrier_names: {QP: Akasa Air}
+route_selectors:
+  origin: .items-start > p > span:first-child
+  destination: .items-end > p > span:first-child
+selectors:
+  cards: div.shadow-md.bg-background-highlight-orange
+  flight_number: span.ml-1
+  airline: ':not(*)'
+  total_fare: .pt-2.pb-1 span.font-bold
+  currency: .pt-2.pb-1 span.font-bold
+discovery:
+  mode: autocomplete_scroll
+  origin: 'input[name="From"]'
+  destination: 'input[name="To"]'
+  options: li
+  listbox: '#destinations'
+  code: 'div[role="presentation"] > span'
+  airport_name: 'div[role="presentation"] > p:last-child'
+  city: 'div[role="presentation"] > p:first-child'
+families:
+  container: .pt-2.pb-1
+  name: .text-typography-highlight
+  price: span.font-bold
+  currency: span.font-bold
+  reveal: div.w-full.flex.bg-background-highlight-orange
+  minimum_interval_ms: 3000

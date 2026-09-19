@@ -1,0 +1,24 @@
+contract: 3
+source_slug: akasa-air
+version: 3.0.0-search
+navigation: akasa_booking
+allowed_hosts: [www.akasaair.com, akasaair.com]
+single_adult_only: true
+search_ready: 'input[name="From"]'
+result_ready: div.shadow-md.bg-background-highlight-orange
+empty_results: ':not(*)'
+context_selector: main
+selectors:
+  cards: div.shadow-md.bg-background-highlight-orange
+  airline: ':not(*)'
+  total_fare: ':not(*)'
+  currency: ':not(*)'
+discovery:
+  mode: autocomplete_scroll
+  origin: 'input[name="From"]'
+  destination: 'input[name="To"]'
+  options: li
+  listbox: '#destinations'
+  code: 'div[role="presentation"] > span'
+  airport_name: 'div[role="presentation"] > p:last-child'
+  city: 'div[role="presentation"] > p:first-child'

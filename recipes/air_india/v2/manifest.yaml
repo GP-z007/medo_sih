@@ -1,0 +1,57 @@
+contract: 1
+source_slug: air-india
+version: v2
+allowed_hosts:
+- www.airindia.com
+- airindia.com
+- booking.airindia.com
+search_ready: input[aria-label="Select origin airport"]
+result_ready: .ai-pb-flight-item-listing
+empty_results: '[class*="no-flights"], [data-testid="no-results"]'
+context_selector: .ai-pb-trip-details-content
+stability_ms: 1500
+search_steps:
+- action: click
+  selector: button[id="onetrust-accept-btn-handler"]
+  optional: true
+- action: click
+  selector: .ai-radio-group__label
+  text: One Way
+- action: airport
+  selector: input[aria-label="Select origin airport"]
+  index: 0
+  field: origin
+- action: airport
+  selector: input[aria-label="Select origin airport"]
+  index: 1
+  field: destination
+- action: date
+  selector: button[aria-label="Open date picker"]
+  field: departure_date
+- action: passengers
+  selector: button[aria-label^="Select passengers"]
+- action: cabin
+  selector: '[role="combobox"][aria-label="bookingWidget.class"]'
+  field: cabin
+- action: click
+  selector: button[aria-label="Search"]
+selectors:
+  cards: .ai-pb-flight-item
+  total_fare: .ai-pb-actual-price
+  currency: .ai-pb-actual-price-currency-code
+  flight_number: .ai-pb-flight-id
+  airline: .ai-pb-operated-by-info
+context_date_selector: .ai-pb-calendar-days:has(.ai-pb-highlighted-border)
+context_date_attribute: id
+single_adult_only: true
+carrier_names:
+  AI: Air India
+cabin_scopes:
+  Economy: .ai-pb-economy-card .ai-pb-non-hovered-content
+  Premium Economy: .ai-pb-premium-economy-card .ai-pb-non-hovered-content
+  Business: .ai-pb-business-card .ai-pb-non-hovered-content
+route_selectors:
+  origin: .ai-pb-preferred-departure-city
+  destination: .ai-pb-preferred-arrival-city
+  alternate_origin: .ai-pb-actual-departure-city
+  alternate_destination: .ai-pb-actual-arrival-city
